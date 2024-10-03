@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IntegrationSystem.DataAccess.DbContexts;
 
+/// <summary>
+/// Represents the database context for the Integration System.
+/// </summary>
 public class DataContext: DbContext
 {
     public DbSet<Employee> Employees { get; set; }
