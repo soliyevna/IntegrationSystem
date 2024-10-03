@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36DF3BFD-9E9E-4691-B8B4-860DE7FE72C9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationSystem.WEB", "src\IntegrationSystem.WEB\IntegrationSystem.WEB.csproj", "{567C57B7-6B9F-47BD-BBE3-0A1A84446019}"
+	ProjectSection(ProjectDependencies) = postProject
+		{102F9E80-18E4-439F-9C60-9AB6D57839F4} = {102F9E80-18E4-439F-9C60-9AB6D57839F4}
+		{3493FE99-53BD-4504-9723-E047D1A61894} = {3493FE99-53BD-4504-9723-E047D1A61894}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationSystem.Service", "src\IntegrationSystem.Service\IntegrationSystem.Service.csproj", "{3493FE99-53BD-4504-9723-E047D1A61894}"
 EndProject

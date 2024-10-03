@@ -1,7 +1,12 @@
+using IntegrationSystem.DataAccess.DbContexts;
+using IntegrationSystem.WEB.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDataAccess(builder.Configuration);
 
 var app = builder.Build();
 
@@ -23,5 +28,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MigrateDatabaseToLatest<DataContext>();
 
 app.Run();
