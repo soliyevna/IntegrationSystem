@@ -1,6 +1,7 @@
 ﻿using IntegrationSystem.DataAccess.DbContexts;
 using IntegrationSystem.DataAccess.Interfaces;
 using IntegrationSystem.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace IntegrationSystem.DataAccess.Repositories;
 
@@ -16,5 +17,11 @@ public class EmployeeRepository: BaseRepository<Employee>, IEmployeeRepository
     public EmployeeRepository(DataContext dataContext): base(dataContext)
     {
         
+    }
+
+    /// <inheritdoc/>
+    public async Task AddRangeAsync(IEnumerable<Employee> employees)
+    {
+        await _dataContext.Employees.AddRangeAsync(employees);
     }
 }
