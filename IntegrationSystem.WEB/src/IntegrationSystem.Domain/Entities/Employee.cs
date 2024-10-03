@@ -5,13 +5,8 @@ namespace IntegrationSystem.Domain.Entities;
 /// <summary>
 /// Represents an employee within the integration system.
 /// </summary>
-public class Employee
+public class Employee: BaseEntity
 {
-    /// <summary>
-    /// Gets or sets the unique identifier for the employee.
-    /// </summary>
-    public int Id { get; set; }
-
     /// <summary>
     /// Gets or sets the payroll number of the employee.
     /// Maximum length is 100 characters.
