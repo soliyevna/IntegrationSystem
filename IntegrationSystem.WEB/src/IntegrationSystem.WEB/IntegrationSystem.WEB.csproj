@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IntegrationSystem.DataAccess\IntegrationSystem.DataAccess.csproj" />
+    <ProjectReference Include="..\IntegrationSystem.Service\IntegrationSystem.Service.csproj" />
   </ItemGroup>
 
 </Project>

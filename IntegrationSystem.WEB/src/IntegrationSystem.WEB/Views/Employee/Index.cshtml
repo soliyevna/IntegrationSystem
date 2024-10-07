@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Employees";
+}
+
+<h1>Employees</h1>
+
+<form enctype="multipart/form-data" asp-controller="Employee" asp-action="Upload" method="post">
+    <div>
+        <input type="file" name="employeeFile" accept=".csv" />
+        <button type="submit" class="btn btn-primary">Upload Employees</button>
+    </div>
+</form>
+
+<hr />
+
+<div>
+    <h3>Employee List</h3>
+    <div id="employeeGrid">
+        <!-- The grid will be populated here using a third-party library like jQuery DataTables or Kendo UI Grid -->
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Initialize your grid here using your preferred library (e.g., jQuery DataTables)
+        $('#employeeGrid').DataTable({
+            ajax: {
+                url: '@Url.Action("GetEmployees", "Employee")',
+                dataSrc: ''
+            },
+            columns: [
+                { data: 'FirstName', title: 'First Name' },
+                { data: 'LastName', title: 'Last Name' },
+                { data: 'Email', title: 'Email' },
+                { data: 'PhoneNumber', title: 'Phone Number' }
+                // Add other columns as needed
+            ],
+            order: [[1, 'asc']], // Sort by Last Name ascending
+            searching: true,
+            paging: true,
+            info: true,
+            processing: true,
+        });
+    });
+</script>

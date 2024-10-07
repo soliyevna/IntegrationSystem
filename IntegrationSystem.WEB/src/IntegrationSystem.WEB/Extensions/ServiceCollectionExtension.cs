@@ -1,4 +1,8 @@
 ﻿using IntegrationSystem.DataAccess.Configurations;
+using IntegrationSystem.DataAccess.Interfaces;
+using IntegrationSystem.DataAccess.Repositories;
+using IntegrationSystem.Service.Interfaces;
+using IntegrationSystem.Service.Services;
 
 namespace IntegrationSystem.WEB.Extensions;
 
@@ -25,5 +29,11 @@ public static class ServiceCollectionExtension
             ?? throw new ArgumentNullException(nameof(connectionString), "Connection string is not defined");
 
         services.AddDataContext(connectionString);
+        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+    }
+
+    public static void AddServices(this IServiceCollection services)
+    {
+        services.AddScoped<IEmployeeService, EmployeeService>();
     }
 }
