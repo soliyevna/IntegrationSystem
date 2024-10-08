@@ -19,10 +19,15 @@ public class StringToDateOnlyConverter: ITypeConverter
     /// <exception cref="CsvHelperException">Thrown when the date format is invalid.</exception>
     public object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)
     {
-        if (DateOnly.TryParse(text, out var date))
+        var formats = new[] { "dd/MM/yyyy", "d/M/yyyy" }; // Handles both single and double digit day/month
+        foreach (var format in formats)
         {
-            return date;
+            if (DateOnly.TryParseExact(text, format, null, System.Globalization.DateTimeStyles.None, out var date))
+            {
+                return date;
+            }
         }
+
         throw new CsvHelperException(row.Context, $"Invalid date format for '{text}'");
     }
 
